@@ -62,7 +62,7 @@ const MenDropdown = ({ dropdown, setDropdown }: any) => {
 
   return (
     (dropdown === 'man') && (
-      <div className="absolute px-6 py-4 left-0 top-full w-full h-[500px] bg-[#F7F6F3] border-t border-gray-200" onMouseLeave={handleMouseLeave}>
+      <div className="absolute px-6 py-4 left-0 top-full w-full h-[500px] bg-[#FFFFFF] border-t border-gray-200" onMouseLeave={handleMouseLeave}>
         <div className="flex flex-col md:flex-row h-full">
           {/* First Column: Image */}
           <div className="w-full md:w-[400px] p-4">

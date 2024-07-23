@@ -1,10 +1,8 @@
 'use client';
 
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-
 import Link from 'next/link';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-
 import { SIDENAV_ITEMS } from '../constants';
 import { SideNavItem } from '../type';
 import { Icon } from '@iconify/react';
@@ -13,7 +11,6 @@ import useScroll from '@/hooks/use-scroll';
 import { MdOutlinePerson } from 'react-icons/md';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { useAppContext } from '@/context';
-// import CartDrawer from './cartDrawer';
 import { RxCross2 } from 'react-icons/rx';
 import { FaSearch } from 'react-icons/fa';
 
@@ -42,7 +39,6 @@ const sidebar = {
 };
 
 const HeaderMobile = () => {
-//   const {IsCartOpen, setIsCartOpen, qty, showPopUp, setShowPopUp} = useAppContext();
   const [showPopUp, setShowPopUp] = useState(true);
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
@@ -96,26 +92,26 @@ const HeaderMobile = () => {
           );
         })}
       </motion.ul>
-            <button className='group pointer-events-auto absolute right-36 top-[26px] z-30 text-gray-800'>
+            {/* <button className='group pointer-events-auto absolute right-36 top-[26px] z-30 text-gray-800'>
                 <Link href='/search'>
                     <div className="flex items-center justify-center w-10 h-10 bg-white border border-gray-800 rounded-full">
                         <FaSearch className='h-[18px] w-[18px]'/>
                     </div>
                 </Link>
-            </button>
-            <button className='group pointer-events-auto absolute right-24 top-[24px] z-30 text-gray-800'>
+            </button> */}
+            <button className={`group pointer-events-auto absolute right-[128px] top-[14px] z-30 ${scrolled ? 'bg-white border border-gray-800 text-gray-800' : 'bg-transparent'} rounded-full`}>
                 <Link href='/account/login'>
-                    <div className="flex items-center justify-center w-10 h-10 bg-white border border-gray-800 rounded-full">
+                    <div className="flex items-center justify-center w-12 h-12">
                         <MdOutlinePerson className='h-[22px] w-[22px]'/>
                     </div>
                 </Link>
             </button>
-            <button className='pointer-events-auto absolute right-14 top-[24px] z-30 text-gray-800'>
-                <div className="flex items-center justify-center w-10 h-10 bg-white border border-gray-800 rounded-full">
+            <button className={`pointer-events-auto absolute right-[72px] top-[14px] z-30 ${scrolled ? 'bg-white border border-gray-800 text-gray-800' : 'bg-transparent'} rounded-full`}>
+                <div className="flex items-center justify-center w-12 h-12">
                     <AiOutlineShopping className='h-[22px] w-[22px]'/>
                 </div>
             </button>
-            <MenuToggle toggle={toggleOpen} />
+            <MenuToggle toggle={toggleOpen} scrolled={scrolled} />
         </motion.nav>
 
   );
@@ -123,12 +119,12 @@ const HeaderMobile = () => {
 
 export default HeaderMobile;
 
-const MenuToggle = ({ toggle }: { toggle: any }) => (
+const MenuToggle = ({ toggle, scrolled }: { toggle: any, scrolled: boolean }) => (
   <button
     onClick={toggle}
-    className="pointer-events-auto absolute right-4 top-[28px] z-30"
+    className={`pointer-events-auto absolute right-4 top-[18px] ${scrolled ? 'bg-white border border-gray-800' : 'bg-transparent'} rounded-full z-30 px-3 py-3`}
   >
-    <svg width="23" height="23" viewBox="0 0 23 23">
+    <svg width="22px" height="22px" viewBox="0 0 23 23" className={`${scrolled ? 'text-white' : 'text-white'}`}>
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -158,7 +154,7 @@ const Path = (props: any) => (
   <motion.path
     fill="transparent"
     strokeWidth="2"
-    stroke="hsl(0, 0%, 18%)"
+    stroke={props.scrolled ? "hsl(0, 0%, 0%)" : "hsl(100, 100%, 100%)"}
     strokeLinecap="round"
     {...props}
   />
