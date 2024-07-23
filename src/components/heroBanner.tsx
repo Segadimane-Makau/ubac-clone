@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import bg from '@/assets/bannerBg.jpg'
+import bg from '@/assets/bgTwo.avif'
 import Link from 'next/link'
 
 const HeroBanner = () => {
@@ -10,8 +10,10 @@ const HeroBanner = () => {
               src={bg}
               alt="Description of the image"
               fill
-              style={{objectFit:"cover"}}
+              loading='eager'
+              priority
               unoptimized
+              style={{objectFit:"cover"}}
               className='relative w-full h-full z-[0]'
           />
           <div className=' z-[1] absolute w-[100%] h-[100vh] bg-gray-900 bg-opacity-30'>
