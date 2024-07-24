@@ -37,7 +37,8 @@ const Footer = () => {
     };
   }, [isOpen]);
   return (
-    <div className='w-[100%] relative bg-[#FFFFFF]'>
+    <div className='w-[100%] relative bg-[#F7F6F3]'>
+      <div className='bg-[#FFFFFF]'>
         <div className='flex justify-between w-[1120px] relative ml-auto mr-auto pt-16' style={{ maxWidth: 'calc(100% - 160px)' }}>
             <div className='max-w-[446px]'>
             <div className=''>
@@ -65,7 +66,7 @@ const Footer = () => {
                     </form>
                 </div>
             </div>
-            <div className='justify-end items-end w-[100%] mt-[36px] text-end p-8'>
+            <div className='justify-end items-end w-[100%] mt-[36px] text-end px-8 pt-8'>
             <button className="text-red mr-[12px] hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px]  overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
                 <span className="relative z-10"><FaFacebookF className='w-[36px] h-[36px]'/></span>
             </button>
@@ -77,7 +78,7 @@ const Footer = () => {
             </button>
             </div>
         </div>
-        <div className='flex flex-col sm:flex-row justify-center items-center w-[100%] text-center py-8'>
+        <div className='flex flex-col sm:flex-row justify-center items-center w-[100%] text-center pt-8'>
             <div className='w-full  basis-1/2 border border-gray-200 border-r-white pt-16 pb-16'>
                 <div className='justify-center items-center w-[100%] text-center'>
                 <TbLockCheck className='w-[54px] h-[54px] mb-[12px] inline-block text-[#212322]'/>
@@ -100,21 +101,23 @@ const Footer = () => {
                 <p className='text-[#898989] font-semibold'>to associations</p>
             </div>
         </div>
+
+      </div>
       <div className='md:pl-32 p-8 text-[#212322]'>
         <ul className='md:text-4xl text-2xl font-semibold'>
-          <li onClick={()=> handleDrawer('faq')} className="group cursor-pointer mb-8 flex">
+          <li onClick={()=> handleDrawer('faq')} className="group cursor-pointer mb-8 flex max-w-fit">
           <button onClick={()=> handleDrawer('faq')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
             <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
           </button>
             <p>Frequently Asked Questions</p>
             </li>
-          <li onClick={()=> handleDrawer('help')} className="group cursor-pointer mb-8 flex">
+          <li onClick={()=> handleDrawer('help')} className="group cursor-pointer mb-8 flex max-w-fit">
             <button onClick={()=> handleDrawer('help')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
               <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
             </button>
             <p>Help Center</p>
             </li>
-          <li onClick={()=> handleDrawer('sizes')} className="group cursor-pointer mb-16 flex">
+          <li onClick={()=> handleDrawer('sizes')} className="group cursor-pointer mb-16 flex max-w-fit">
             <button onClick={()=> handleDrawer('sizes')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
               <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
             </button>
@@ -126,7 +129,7 @@ const Footer = () => {
         <Link href=''>
           <p>Privacy Policy</p>
         </Link>
-        <p className=''>Created by Ezekiel Makau</p>
+        <p className=''>Coded by Ezekiel Makau</p>
       </div>
       {isOpen && (
         <div className="z-[9999999999] fixed inset-0 transition-opacity">

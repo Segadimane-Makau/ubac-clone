@@ -6,6 +6,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 const MenDropdown = ({ dropdown, setDropdown }: any) => {
   const [hoveredLink, setHoveredLink] = useState('VOLA - Recycled wool');
   const [images, setImages] = useState<any>({});
+  const [preloadedImages, setPreloadedImages] = useState({});
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -15,7 +16,17 @@ const MenDropdown = ({ dropdown, setDropdown }: any) => {
 
         if (!querySnapshot.empty) {
           querySnapshot.forEach((doc) => {
-            setImages(doc.data().images);
+            const data = doc.data().images;
+            setImages(data);
+
+            // Preload images
+            const loadedImages: any = {};
+            Object.keys(data).forEach((key) => {
+              const img = new window.Image(); // Correct way to create a new Image element
+              img.src = data[key];
+              loadedImages[key] = img;
+            });
+            setPreloadedImages(loadedImages);
           });
         } else {
           console.log('No document with id: woman found!');

@@ -7,7 +7,7 @@ import HeroBanner from "@/components/heroBanner";
 
 export default function Home() {
   return (
-    <main className="block w-[100%]">
+    <main className="block w-[100%] bg-[#F7F6F3]">
       <Header/>
       <HeaderMobile/>
       <HeroBanner/>

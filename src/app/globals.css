@@ -31,3 +31,22 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  transition: 0.5 ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
