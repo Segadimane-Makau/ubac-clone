@@ -1,5 +1,6 @@
 "use client";
 
+import CategoryBanner from "@/components/categoryBanner";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import HeaderMobile from "@/components/header-mobile";
@@ -11,6 +12,7 @@ export default function Home() {
       <Header/>
       <HeaderMobile/>
       <HeroBanner/>
+      <CategoryBanner/>
       <Footer/>
     </main>
   );

@@ -66,7 +66,7 @@ const Footer = () => {
                           <input type="email" className='w-full h-[54px] pr-[176px] bg-[#ffffff] focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none p-8 
                           leading-6 text-slate-900 placeholder-gray-300  rounded-full ring-1 ring-slate-200 shadow-sm' 
                           placeholder='Type your email address here' />
-                            <button className="h-[46px] bg-white border-black w-[30%] rounded-full mt-[9px] mr-[8px] text-black absolute right-0 top-0 overflow-hidden border border-black bg-white text-black shadow-2xl transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-black hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
+                            <button className="h-[46px] bg-white border-black w-[30%] rounded-full mt-[9px] mr-[8px] text-black absolute right-0 top-0 overflow-hidden border border-black bg-white text-black shadow-2xl transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
                             <span className="relative z-10">Subscribe</span>
                             </button>
                       </form>
@@ -134,7 +134,7 @@ const Footer = () => {
         <ul className='md:text-4xl text-2xl font-semibold'>
           <Reveal>
             <li onClick={()=> handleDrawer('faq')} className="group cursor-pointer mb-8 flex max-w-fit">
-            <button onClick={()=> handleDrawer('faq')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+            <button onClick={()=> handleDrawer('faq')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:before:left-0 group-hover:before:w-full">
               <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
             </button>
               <p>Frequently Asked Questions</p>
@@ -142,7 +142,7 @@ const Footer = () => {
           </Reveal>
           <Reveal>
             <li onClick={()=> handleDrawer('help')} className="group cursor-pointer mb-8 flex max-w-fit">
-              <button onClick={()=> handleDrawer('help')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+              <button onClick={()=> handleDrawer('help')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:before:left-0 group-hover:before:w-full">
                 <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
               </button>
               <p>Help Center</p>
@@ -150,7 +150,7 @@ const Footer = () => {
           </Reveal>
           <Reveal>
             <li onClick={()=> handleDrawer('sizes')} className="group cursor-pointer mb-16 flex max-w-fit">
-              <button onClick={()=> handleDrawer('sizes')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+              <button onClick={()=> handleDrawer('sizes')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:before:left-0 group-hover:before:w-full">
                 <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
               </button>
               <p>Size Guide</p>
