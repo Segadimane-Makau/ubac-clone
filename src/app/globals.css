@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #ffffff;
 }
 
 @layer utilities {
@@ -49,6 +44,35 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@layer base {
+  .slick-prev:before,
+  .slick-next:before{
+      color:black !important;
+      font-size: 32px;
+  }
+  
+}
+
+/* Assuming your custom arrow components have class names 'slick-prev' and 'slick-next' */
+.slick-next {
+  /* top: unset !important;
+  bottom: 25px !important; */
+  z-index: 10 !important;
+}
+
+.slick-next {
+  right: 30px !important;
+  left: -54px !important;
+  margin-right: 16px !important;
+}
+.slick-prev {
+  /* right: 30px !important; */
+  /* top: 0px !important; */
+  left: -54px !important;
+  margin-top: 42px !important;
+  margin-right: 16px !important;
 }
 
 
