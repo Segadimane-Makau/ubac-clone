@@ -8,6 +8,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { RxCross2 } from 'react-icons/rx'
 import Link from 'next/link'
 import { Reveal } from './reveal'
+import { motion } from 'framer-motion'
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -174,13 +175,22 @@ const Footer = () => {
       )}
 
       <aside
-        className={`transform top-0 right-0 md:w-[640px] w-full bg-[#f2f2f2] fixed h-full overflow-auto ease-in-out transition-all duration-700 z-[99999999991] ${
+        className={`transform top-0 right-0 md:w-[640px] w-full bg-[#F7F6F3] fixed h-full overflow-auto ease-in-out transition-all duration-700 z-[99999999991] ${
           !isOpen ? "translate-x-full" : "-translate-x-[0]"
         }`}
       >
-        <button onClick={handleDrawer} className="text-black mt-6 absolute right-[32px] hover:before:bg-black rounded-full h-[65px] w-[65px] overflow-hidden bg-white px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
-          <span className="relative z-10"><RxCross2 className='w-[40px] h-[40px]'/></span>
-        </button>
+        <div onClick={handleDrawer} className='mt-6 absolute right-[32px] cursor-pointer'>
+        <motion.div
+        className="cross-button"
+        initial={{ scale: 1, rotate: 0 }}
+        whileHover={{ scale: 0.8, rotate: 180 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        >
+        <div className="line line1" />
+        <div className="line line2" />
+        </motion.div>
+
+    </div>
         {type === 'faq' && (
             <div className='w-full pt-8'>
             <p className='sm:text-4xl text-2xl font-semibold text-center'>Send a message</p>
@@ -214,8 +224,8 @@ const Footer = () => {
           </div>
         )}
         {type==='sizes' && (
-          <div className='w-full pt-8'>
-            <p className='text-4xl font-semibold text-center'>Size Guide</p>
+          <div className='w-full pt-8 bg-[#F7F6F3]'>
+            <p className='text-6xl font-semibold text-center text-[#212322]'>Size Guide</p>
             <p className='p-8 text-1xl text-gray-500 font-semibold'>Our sneakers fits very well, take your usual size. If you hesitate between two sizes, take the size above.</p>
             <div className='w-full p-8'>
               <table className='table-auto w-full text-[18px] text-gray-600'>
