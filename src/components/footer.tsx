@@ -7,6 +7,7 @@ import { FaFacebookF, FaPlus, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { RxCross2 } from 'react-icons/rx'
 import Link from 'next/link'
+import { Reveal } from './reveal'
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,87 +43,119 @@ const Footer = () => {
         <div className='flex justify-between w-[1120px] relative ml-auto mr-auto pt-16' style={{ maxWidth: 'calc(100% - 160px)' }}>
             <div className='max-w-[446px]'>
             <div className=''>
-                <h2 className='text-4xl font-bold text-[#212322]'>NEWSLETTER</h2>
+                <Reveal>
+                  <h2 className='text-4xl font-bold text-[#212322]'>NEWSLETTER</h2>                
+                </Reveal>
             </div>
-            <p className='mt-8 text-[#898989]'>Discover in preview all our new products, our latest actions and get R30 off your first order by subscribing to our newsletter!</p>
+            <Reveal>
+              <p className='mt-8 text-[#898989]'>Discover in preview all our new products, our latest actions and get R30 off your first order by subscribing to our newsletter!</p>              
+            </Reveal>
                 <div className='md:hidden sm:block p-8 justify-center items-center w-full text-center'>
                     <form className='group relative w-full'>
                         <input type="email" className='w-full h-[54px] bg-[#ffffff] focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none p-8 
                         leading-6 text-slate-900 placeholder-gray-300  rounded-full ring-1 ring-slate-200 shadow-sm' 
                         placeholder='Type your email address here' />
-                        <button className='h-[64px] bg-black w-[50%] rounded-full text-white mt-2'>
-                            Subscribe
-                        </button>
+                          <button className='h-[64px] bg-black w-[50%] rounded-full text-white mt-2'>
+                              Subscribe
+                          </button>
                     </form>
                 </div>
-                <div className='md:block sm:hidden xm:hidden hidden py-8 justify-center items-center w-full text-center'>
-                    <form className='group relative w-full'>
-                        <input type="email" className='w-full h-[54px] pr-[176px] bg-[#ffffff] focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none p-8 
-                        leading-6 text-slate-900 placeholder-gray-300  rounded-full ring-1 ring-slate-200 shadow-sm' 
-                        placeholder='Type your email address here' />
-                        <button className="h-[46px] bg-white border-black w-[30%] rounded-full mt-[9px] mr-[8px] text-black absolute right-0 top-0 overflow-hidden border border-black bg-white text-black shadow-2xl transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-black hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
-                        <span className="relative z-10">Subscribe</span>
-                        </button>
-                    </form>
-                </div>
+                <Reveal>
+                  <div className='md:block sm:hidden xm:hidden hidden py-8 justify-center items-center w-full text-center'>
+                      <form className='group relative w-full'>
+                          <input type="email" className='w-full h-[54px] pr-[176px] bg-[#ffffff] focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none p-8 
+                          leading-6 text-slate-900 placeholder-gray-300  rounded-full ring-1 ring-slate-200 shadow-sm' 
+                          placeholder='Type your email address here' />
+                            <button className="h-[46px] bg-white border-black w-[30%] rounded-full mt-[9px] mr-[8px] text-black absolute right-0 top-0 overflow-hidden border border-black bg-white text-black shadow-2xl transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-black hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
+                            <span className="relative z-10">Subscribe</span>
+                            </button>
+                      </form>
+                  </div>
+                </Reveal>
             </div>
-            <div className='justify-end items-end w-[100%] mt-[36px] text-end px-8 pt-8'>
-            <button className="text-red mr-[12px] hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px]  overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
-                <span className="relative z-10"><FaFacebookF className='w-[36px] h-[36px]'/></span>
-            </button>
-            <button className="text-red mr-[12px] hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px] overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
-                <span className="relative z-10"><FaInstagram className='w-[36px] h-[36px]'/></span>
-            </button>
-            <button className="text-red hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px] overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
-                <span className="relative z-10"><FaXTwitter className='w-[36px] h-[36px]'/></span>
-            </button>
-            </div>
+            <Reveal>
+              <div className='justify-end items-end w-[100%] mt-[36px] text-end px-8 pt-8'>
+                <button className="text-red mr-[12px] hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px]  overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
+                    <span className="relative z-10"><FaFacebookF className='w-[36px] h-[36px]'/></span>
+                </button>
+                <button className="text-red mr-[12px] hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px] overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
+                    <span className="relative z-10"><FaInstagram className='w-[36px] h-[36px]'/></span>
+                </button>
+                <button className="text-red hover:before:bg-redborder-black relative rounded-full h-[63px] w-[63px] overflow-hidden bg-[#F7F6F3] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full">
+                    <span className="relative z-10"><FaXTwitter className='w-[36px] h-[36px]'/></span>
+                </button>
+              </div>
+            </Reveal>
         </div>
         <div className='flex flex-col sm:flex-row justify-center items-center w-[100%] text-center pt-8'>
             <div className='w-full  basis-1/2 border border-gray-200 border-r-white pt-16 pb-16'>
                 <div className='justify-center items-center w-[100%] text-center'>
-                <TbLockCheck className='w-[54px] h-[54px] mb-[12px] inline-block text-[#212322]'/>
+                  <Reveal>
+                    <TbLockCheck className='w-[54px] h-[54px] mb-[12px] inline-block text-[#212322]'/>
+                  </Reveal>
                 </div>
-                <p className='text-[#212322] font-bold'>Secure payment</p>
-                <p className='text-[#898989] font-semibold'>credit card</p>
+                <Reveal>
+                  <p className='text-[#212322] font-bold'>Secure payment</p>                  
+                  </Reveal>
+                  <Reveal>
+                    <p className='text-[#898989] font-semibold'>credit card</p>                  
+                  </Reveal>
             </div>
             <div className='w-full basis-1/2 border border-gray-200 border-r-white pt-16 pb-16'>
-            <div className='justify-center items-center w-[100%] text-center text-[#212322]'>
-                <TbTruckReturn className='w-[54px] h-[54px] mb-[12px] inline-block'/>
-                </div>
-                <p className='text-[#212322] font-bold'>Simplified return</p>
-                <p className='text-[#898989] font-semibold'>(under 60 days)</p>
+              <div className='justify-center items-center w-[100%] text-center text-[#212322]'>
+                <Reveal>
+                  <TbTruckReturn className='w-[54px] h-[54px] mb-[12px] inline-block'/>                  
+                </Reveal>
+              </div>
+                <Reveal>
+                    <p className='text-[#212322] font-bold'>Simplified return</p>
+                  </Reveal>
+                  <Reveal>
+                    <p className='text-[#898989] font-semibold'>(under 60 days)</p>
+                  </Reveal>
             </div>
             <div className='w-full basis-1/2 border border-r-white border-gray-200 pt-16 pb-16'>
-            <div className='justify-center items-center w-[100%] text-center text-[#212322]'>
-                <GiLifeSupport className='w-[54px] h-[54px] mb-[12px] inline-block'/>
+              <div className='justify-center items-center w-[100%] text-center text-[#212322]'>
+                  <Reveal>
+                    <GiLifeSupport className='w-[54px] h-[54px] mb-[12px] inline-block'/>
+                  </Reveal>
                 </div>
-                <p className='text-[#212322] font-bold'>Support</p>
-                <p className='text-[#898989] font-semibold'>to associations</p>
+                  <Reveal>
+                    <p className='text-[#212322] font-bold'>Support</p>
+                  </Reveal>
+                  <Reveal>
+                    <p className='text-[#898989] font-semibold'>to associations</p>
+                  </Reveal>
             </div>
         </div>
 
       </div>
       <div className='md:pl-32 p-8 text-[#212322]'>
         <ul className='md:text-4xl text-2xl font-semibold'>
-          <li onClick={()=> handleDrawer('faq')} className="group cursor-pointer mb-8 flex max-w-fit">
-          <button onClick={()=> handleDrawer('faq')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
-            <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
-          </button>
-            <p>Frequently Asked Questions</p>
-            </li>
-          <li onClick={()=> handleDrawer('help')} className="group cursor-pointer mb-8 flex max-w-fit">
-            <button onClick={()=> handleDrawer('help')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+          <Reveal>
+            <li onClick={()=> handleDrawer('faq')} className="group cursor-pointer mb-8 flex max-w-fit">
+            <button onClick={()=> handleDrawer('faq')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
               <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
             </button>
-            <p>Help Center</p>
-            </li>
-          <li onClick={()=> handleDrawer('sizes')} className="group cursor-pointer mb-16 flex max-w-fit">
-            <button onClick={()=> handleDrawer('sizes')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
-              <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
-            </button>
-            <p>Size Guide</p>
-            </li>
+              <p>Frequently Asked Questions</p>
+              </li>
+          </Reveal>
+          <Reveal>
+            <li onClick={()=> handleDrawer('help')} className="group cursor-pointer mb-8 flex max-w-fit">
+              <button onClick={()=> handleDrawer('help')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+                <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
+              </button>
+              <p>Help Center</p>
+              </li>
+          </Reveal>
+          <Reveal>
+            <li onClick={()=> handleDrawer('sizes')} className="group cursor-pointer mb-16 flex max-w-fit">
+              <button onClick={()=> handleDrawer('sizes')} className="text-red mr-[12px] group-hover:before:bg-redborder-black relative rounded-full h-[50px] w-[50px] overflow-hidden bg-[#f2f2f2] px-3 text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 group-hover:text-white group-hover:shadow-black group-hover:before:left-0 group-hover:before:w-full">
+                <span className="relative z-10"><FaPlus className='w-[25px] h-[25px]'/></span>
+              </button>
+              <p>Size Guide</p>
+              </li>
+          </Reveal>
         </ul>
       </div>
       <div className='w-full bg-black bg-opacity-90 justify-center items-center w-full text-center text-white'>
