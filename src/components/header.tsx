@@ -13,7 +13,7 @@ import { FaSearch } from 'react-icons/fa';
 import WomenDropdown from './womenDropdown';
 import MenDropdown from './menDropdown';
 
-const Header = () => {
+const Header = ({color}:any) => {
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
   const [showPopUp, setShowPopUp] = useState(true);
@@ -75,7 +75,7 @@ const Header = () => {
               className="flex flex-row space-x-3 items-center justify-center"
             >
               <h2 className={cn(
-                `letter-spacing-4 text-[28px] sm:text-[28px] ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales') ? 'text-black' : 'text-[#D4D4D8]'} font-black transition-all duration-600 ease-in-out`,
+                `letter-spacing-4 text-[28px] sm:text-[28px] ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales' || color == 'black') ? 'text-black' : 'text-[#D4D4D8]'} font-black transition-all duration-600 ease-in-out`,
                 {
                   'letter-spacing-4 text-[#000000] text-[28px] sm:text-[28px] font-black transition-all duration-1000 ease-in-out': scrolled,
                   'letter-spacing-4 text-[#000000] text-[28px] sm:text-[28px] font-black transition-all duration-1000 ease-in-out ': selectedLayout,
@@ -85,7 +85,7 @@ const Header = () => {
           </div>
 
           <div className={cn(
-            `flex-grow flex justify-center hidden md:flex ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales') ? 'text-black' : 'text-[#FFFFFF]'} text-[12px] font-bold transition-all duration-600 ease-in-out`,
+            `flex-grow flex justify-center hidden md:flex ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales' || color == 'black') ? 'text-black' : 'text-[#FFFFFF]'} text-[12px] font-bold transition-all duration-600 ease-in-out`,
             {
               'text-[#000000] font-bold transition-all duration-1000 ease-in-out': scrolled,
               'text-[#000000] font-bold transition-all duration-1000 ease-in-out ': selectedLayout,
@@ -93,13 +93,13 @@ const Header = () => {
           )}>
             <ul className='flex space-x-8'>
               <li className="group" onMouseEnter={() => handleMouseEnter('woman')}>
-                <Link href='/sales/woman'>
+                <Link href='/collection/femme'>
                   <span className={`relative bg-right-bottom bg-gradient-to-l ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales') ? 'from-[#000000]' : 'from-[#F7F6F3]'} bg-[length:0%3px] bg-no-repeat group-hover:bg-[length:120%3px] transition-all duration-500 ease-out`}>WOMAN</span>
                 </Link>
                 <WomenDropdown dropdown={dropdown} setDropdown={setDropdown} />
               </li>
               <li className="group" onMouseEnter={() => handleMouseEnter('man')}>
-                <Link href='/sales/man'>
+                <Link href='/collection/homme'>
                   <span className={`relative bg-right-bottom bg-gradient-to-l ${(dropdown == 'woman' || dropdown == 'man' || dropdown == 'sales') ? 'from-[#000000]' : 'from-[#F7F6F3]'} bg-[length:0%3px] bg-no-repeat group-hover:bg-[length:120%3px] transition-all duration-500 ease-out`}>MAN</span>
                 </Link>
                 <MenDropdown dropdown={dropdown} setDropdown={setDropdown} />
