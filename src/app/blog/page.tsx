@@ -25,7 +25,7 @@ const BlogDetails = () => {
             className='absolute bottom-0'/>
         </div>
         <div className='w-full bg-white mt-4 leading-none'>
-            <div className='w-[1280px] h-screen mx-auto bg-white relative p-[80px] text-[#212322]'>
+            <div className='w-[1280px] min-h-screen mx-auto bg-white relative p-[80px] text-[#212322]'>
                 <p className='text-[12px]'>19 May 2024</p>
                 <p className='text-[48px] font-semibold leading-none'>Which trainers should you choose for spring and summer?</p>
                 <p className='text-[24px] font-bold leading-none mt-8'>Spring is here and summer is on its way. To make sure you're comfortable this summer, here's a selection of eco-responsible trainers, made from natural materials, that will allow you to breathe while feeling comfortable in your trainers!</p>
@@ -123,6 +123,7 @@ What's more, natural materials like cotton are well known for their ability to m
                 </div>
             </div>
         </div>
+        <Footer/>
     </div>
   )
 }
