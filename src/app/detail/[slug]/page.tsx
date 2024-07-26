@@ -7,6 +7,7 @@ import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firesto
 import { db } from '../../firebaseConfig'
 import ProductTrack from '@/components/productTrack'
 import Header from '@/components/header'
+import ProductFooter from '@/components/productFooter'
 
 async function fetchProductFromFirestore(collectionName: string, productId: string) {
   const docRef = doc(db, collectionName, productId);
@@ -53,6 +54,9 @@ const Details = async ({params}:any) => {
         <Header color={"black"}/>
         <div className='w-full md:mt-[107px] md:grid-cols-3 grid-cols-1 grid md:gap-8 sm:pl-[2px] md:pt-16 pb-16'>
              <ProductDetails saleData={currentSaleData} color={productColor} />
+        </div>
+        <div className='w-full'>
+          <ProductFooter items={currentSaleData}/>
         </div>
         {/* <div className='w-full'>
               <p className='text-4xl text-black font-semibold text-center'>You may also like</p>
