@@ -1,88 +1,141 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import PageTransition from './pageTransition';
+'use client';
+
+import Link from 'next/link'
+import Image from 'next/image'
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import React, { useEffect, useState } from 'react'
+import Slider from 'react-slick'
 import { base64 } from '@/app/firebaseConfig';
 
-const ProductList = ({ salesData }: any) => {
-    const [loading, setLoading] = useState(true);
-    const [loadedImages, setLoadedImages] = useState(0);
+const ProductTrack = ({salesData}:any) => {
+  let [currentCategory, setCurrentCategory] = useState('Women');
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    if (salesData.length > 0 || salesData.length > 0) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }}, [salesData.length]);
 
-    useEffect(() => {
-        if (salesData.length > 0 && loadedImages === salesData.reduce((acc: any, sale: any) => acc + sale.saleImages.length, 0)) {
-            setLoading(false);
-        }
-    }, [loadedImages, salesData]);
+    const settings = {
+      className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "30px",
+      slidesToShow: 3,
+      speed: 500,
+      responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+            },
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                centerMode: false,
+            },
+        },
+        {
+            breakpoint: 200,
+            settings: {
+                slidesToShow: 1,
+                centerMode: false,
+            },
+        },
 
-    const handleImageLoad = () => {
-        setLoadedImages((prev) => prev + 1);
-    };
+      ],
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      };
 
-    if (loading) {
-        return <PageTransition />;
+    const categories = ['Women', 'Men'];
+
+    const handleCategoryClick = (category:any) => {
+        setCurrentCategory(category);
+        console.log('categoryClick: ', category);
     }
+    
+  return (
+    <div className='pb-16 pt-16 md:pl-32 pl-8 overflow-hidden md:pr-0 pr-0 text-[#212322]'>
+        <ul className='flex space-x-0'>
+        {categories.map((category) => (
+            <li key={category} className='group'>
+                <button onClick={() => handleCategoryClick(category)}>
+                    <span className={`md:pl-16 md:pr-16 pl-8 pr-8  pb-2 text-[#00000] text-2xl font-semibold relative bg-right-bottom bg-gradient-to-l from-black ${category === currentCategory ? 'bg-[length:120%3px]' : 'bg-[length:0%3px]'} bg-no-repeat group-hover:bg-[length:120%3px] transition-all duration-500 ease-out`}>
+                        {category}
+                    </span>
+                </button>
+            </li>
+            ))}
+        </ul>
+        <div className='w-full mt-8'>
+          <Slider {...settings} className="ml-0 w-full">
+              {salesData.map((sale:any) => (
+                sale.saleImages.map((imageGroup:any, index:any) => (
+                  <div className="min-w-[100px] overflow-hidden p-2" key={sale.name}>
+                    <Link href={`/detail/${encodeURIComponent(sale.product_id)}-${encodeURIComponent(imageGroup.color.color)}`}>
+                      <Image
+                        src={imageGroup.imagesUrls[1]}
+                        alt={sale.name}
+                        unoptimized
+                        priority
+                        placeholder='blur' 
+                        blurDataURL={base64}
+                        className="w-full hover:scale-105 transform transition-transform ease-in-out duration-300 cursor-pointer"
+                        width={100}
+                        height={140}
+                        loading="eager"
+                      />
+                      <div>
+                        <div className="font-bold">
+                          <p className="uppercase text-[16px] mt-[16px]">{sale.name}</p>
+                        </div>
+                        <p className="text-gray-400 text-base text-[14px]">{sale.material}</p>
+                        <p className="font-bold text-[16px] mt-2">R{sale.price}</p>
+                      </div>
+                    </Link>
+                  </div>
+                ))
+              ))}
+          </Slider>
+        </div>
 
+
+    </div>
+  )
+}
+
+function SampleNextArrow(props:any) {
+    const { className='slick-arrow slick-next', style, onClick } = props;
     return (
-        <main className='w-full h-full mt-[107px] relative'>
-            <div className='w-full sm:p-16 sm:pt-24 pl-4 pr-4 pt-32'>
-                <div className='grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'>
-                    {salesData.map((sale: any) => (
-                        sale.saleImages.map((imageGroup: any, index: any) => (
-                            <React.Fragment key={imageGroup.imagesUrls[1]}>
-                                {(index === 0) && (
-                                    <div className='hidden sm:block sm:col-span-2 text-black min-w-[100px] overflow-hidden'>
-                                        <Link href={`/detail/${encodeURIComponent(sale.product_id)}-${encodeURIComponent(imageGroup.color.color)}`}>
-                                            <div className='overflow-hidden'>
-                                                <Image
-                                                    src={imageGroup.imagesUrls[2]}
-                                                    alt=""
-                                                    unoptimized
-                                                    priority
-                                                    placeholder='blur'
-                                                    blurDataURL={base64}
-                                                    loading="eager"
-                                                    width={100}
-                                                    height={100}
-                                                    onLoadingComplete={handleImageLoad}
-                                                    className='w-full md:max-h-[520px] object-cover hover:scale-105 transform transition-transform ease-in-out duration-300 cursor-pointer'
-                                                />
-                                            </div>
-                                        </Link>
-                                    </div>
-                                )}
-                                <Link href={`/detail/${encodeURIComponent(sale.product_id)}-${encodeURIComponent(imageGroup.color.color)}`}>
-                                    <div className='sm:col-span-1 col-span-2 text-[#212322] min-w-[100px] overflow-hidden'>
-                                        <div className='overflow-hidden'>
-                                            <Image
-                                                src={imageGroup.imagesUrls[1]}
-                                                alt=""
-                                                unoptimized
-                                                priority
-                                                placeholder='blur'
-                                                blurDataURL={base64}
-                                                loading="eager"
-                                                width={100}
-                                                height={100}
-                                                onLoadingComplete={handleImageLoad}
-                                                className='w-full md:max-h-[400px] object-cover hover:scale-105 transform transition-transform ease-in-out duration-300 cursor-pointer'
-                                            />
-                                        </div>
-                                        <div className='pb-8 border-b'>
-                                            <div className='font-bold'>
-                                                <p className='uppercase text-[16px] mt-[16px]'>{sale.name}</p>
-                                            </div>
-                                            <p className='text-gray-400 text-base text-[14px]'>{sale.material}</p>
-                                            <p className='font-bold text-[16px] mt-0'>{sale.price}€</p>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </React.Fragment>
-                        ))
-                    ))}
-                </div>
-            </div>
-        </main>
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      />
     );
-};
+  }
+  
+  function SamplePrevArrow(props:any) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block"}}
+        onClick={onClick}
+      />
+    );
+  }
 
-export default ProductList;
+export default ProductTrack;

@@ -17,11 +17,11 @@ interface ProductFooterProps {
     items: { footer: Item[] };
 }
 
-const ProductFooter: React.FC<ProductFooterProps> = ({ items }) => {
+const ProductFooter = ({ items }: any) => {
   return (
     <div className='justify-center items-center mb-16'>
         <div className='w-full'>
-            {items.footer.map((item, index) => (
+            {items.footer.map((item: any, index: any) => (
                 <div key={index} className='w-[1150px] mx-auto px-[80px] py-0 text-[#212322]'>
                     <div className={`justify-between flex mt-16 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
                         <div className='w-[440px] h-[640px]'>
@@ -37,7 +37,7 @@ const ProductFooter: React.FC<ProductFooterProps> = ({ items }) => {
                         </div>
                         <div className='w-[400px]'>
                             <h1 className='text-[#212322] font-bold text-[48px] uppercase'>{item.header}</h1>
-                            {item.details.map((desc, descIndex) => (
+                            {item.details.map((desc: any, descIndex: any) => (
                                 <div key={descIndex} className='mb-8'>
                                     <p className='text-[24px] font-semibold mb-2'>{desc.title}</p>
                                     <p className='text-[16px] font-semibold leading-6 text-[#898989]'>{desc.description}</p>
