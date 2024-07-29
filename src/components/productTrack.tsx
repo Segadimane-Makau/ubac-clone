@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { base64 } from '@/app/firebaseConfig';
+import base64Image from '@/assets/base64.jpeg';
 
 const ProductTrack = ({ salesData }: any) => {
   const [currentCategory, setCurrentCategory] = useState('Women');
@@ -60,7 +60,7 @@ const ProductTrack = ({ salesData }: any) => {
                       alt={sale.name}
                       unoptimized
                       placeholder='blur' 
-                      blurDataURL={base64} // Assuming base64 is specific to each image
+                      blurDataURL={base64Image.blurDataURL} // Assuming base64 is specific to each image
                       className="w-full hover:scale-105 transform transition-transform ease-in-out duration-300 cursor-pointer"
                       width={100}
                       height={140}

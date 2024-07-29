@@ -9,7 +9,7 @@ import { useAppContext } from '@/context';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { base64 } from '@/app/firebaseConfig';
+import base64Image from '@/assets/base64.jpeg';
 import Carousel from './carousel';
 import ProductInfo from './productInfo';
 import Accordion from './accordion';
@@ -150,14 +150,14 @@ const ProductDetails = ({saleData, color}:any) => {
                                 {index === 0 && (
                                     <>
                                         <div className='col-span-2 min-w-[100px] overflow-hidden'>
-                                            <Image src={image} alt='ubac' className='w-full max-h-[80vh] object-cover' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                                            <Image src={image} alt='ubac' className='w-full max-h-[80vh] object-cover' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64Image.blurDataURL} loading="eager"/>
                                         </div>
                                     </>
                                 )}
                                 {index > 1 && (
                                     <>
                                         <div className='col-span-1 min-w-[100px] overflow-hidden'>
-                                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64Image.blurDataURL} loading="eager"/>
                                         </div>
                                     </>
                                 )}
@@ -172,7 +172,7 @@ const ProductDetails = ({saleData, color}:any) => {
                     <Slider {...settings}>
                       {CurrentImages.slice(2).map((image:any, index: number) => (
                             <div key={image}>
-                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64Image.blurDataURL} loading="eager"/>
                           </div>
                       ))}
                     </Slider>

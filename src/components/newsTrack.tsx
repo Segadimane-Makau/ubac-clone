@@ -6,8 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { base64 } from '@/app/firebaseConfig';
+import base64Image from '@/assets/base64.jpeg';
 import { Reveal } from './reveal';
+
 
 const NewsTrack = ({ newsData }: any) => {
 
@@ -46,7 +47,7 @@ const NewsTrack = ({ newsData }: any) => {
                       alt={news.name}
                       unoptimized
                       placeholder='blur' 
-                      blurDataURL={base64}
+                      blurDataURL={base64Image.blurDataURL}
                       style={{objectFit:"cover"}}
                       className="w-full max-h-[320px] hover:scale-105 transform transition-transform ease-in-out duration-300 cursor-pointer"
                       width={100}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import bg from '@/assets/bgTwo.avif'
+import bg from '@/assets/bannerBg.jpg'
 import Link from 'next/link'
 import { Reveal } from './reveal'
 

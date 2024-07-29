@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import PageTransition from './pageTransition';
-import { base64 } from '@/app/firebaseConfig';
+import base64Image from '@/assets/base64.jpeg';
 
 const ProductList = ({salesData}:any) => {
     const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ const ProductList = ({salesData}:any) => {
                                             unoptimized 
                                             priority 
                                             placeholder='blur' 
-                                            blurDataURL={base64}
+                                            blurDataURL={base64Image.blurDataURL}
                                             loading="eager" 
                                             width={100} 
                                             height={100} 
@@ -57,7 +57,7 @@ const ProductList = ({salesData}:any) => {
                                         unoptimized 
                                         priority 
                                         placeholder='blur' 
-                                        blurDataURL={base64}
+                                        blurDataURL={base64Image.blurDataURL}
                                         loading="eager" 
                                         width={100} 
                                         height={100} 
