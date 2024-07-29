@@ -12,14 +12,41 @@ import { FaSearch } from 'react-icons/fa';
 
 import WomenDropdown from './womenDropdown';
 import MenDropdown from './menDropdown';
+import { useAppContext } from '@/context';
+import CartDrawer from './cartDrawer';
+import { motion } from 'framer-motion';
 
-const Header = ({color}:any) => {
+const Header = ({ color }: any) => {
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
-  const [showPopUp, setShowPopUp] = useState(true);
+  const { IsCartOpen, setIsCartOpen, qty, showPopUp, setShowPopUp } = useAppContext();
   const [dropdown, setDropdown] = useState('');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+
+  const handleDrawer = () => {
+    setIsCartOpen(!IsCartOpen);
+  };
+
+  useEffect(() => {
+    const handleEscKeyPress = (e: any) => {
+      if (e.keyCode === 27 && IsCartOpen) {
+        setIsCartOpen(false);
+      }
+    };
+
+    if (IsCartOpen) {
+      document.body.style.setProperty("overflow", "hidden");
+    } else {
+      document.body.style.removeProperty("overflow");
+    }
+
+    document.addEventListener("keydown", handleEscKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKeyPress);
+    };
+  }, [IsCartOpen, setIsCartOpen]);
 
   const handleMouseEnter = (menu: any) => {
     setDropdown(menu);
@@ -120,8 +147,8 @@ const Header = ({color}:any) => {
                 </Link>
               </li>
               <button className='mt-[-3px]'>
-                <AiOutlineShopping className='h-[22px] w-[22px]' />
-                <span className='absolute mt-[-28px] ml-[8px] text-[]'>0</span>
+                <AiOutlineShopping className='h-[22px] w-[22px]' onClick={handleDrawer} />
+                <span className='absolute mt-[-28px] ml-[8px] text-[]'>{qty}</span>
               </button>
             </ul>
           </div>
@@ -135,6 +162,33 @@ const Header = ({color}:any) => {
           </div>
         </div>
       </div>
+        {IsCartOpen && (
+          <div className="z-[9999999999] fixed inset-0 transition-opacity">
+            <div
+              onClick={() => setIsCartOpen(false)}
+              className="absolute inset-0 bg-black opacity-50"
+            ></div>
+          </div>
+        )}
+
+        <aside
+          className={`transform top-0 right-0 md:w-[740px] w-full bg-[#f2f2f2] fixed h-full overflow-auto ease-in-out transition-all duration-700 z-[9999999999991] ${
+            !IsCartOpen ? "translate-x-full" : "-translate-x-[0]"
+          }`}
+        >
+          <div onClick={handleDrawer} className='mt-6 absolute right-[32px] cursor-pointer z-[9999999999992]'>
+            <motion.div
+              className="cross-button"
+              initial={{ scale: 1, rotate: 0 }}
+              whileHover={{ scale: 0.8, rotate: 180 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <div className="line line1" />
+              <div className="line line2" />
+            </motion.div>
+          </div>
+          <CartDrawer />
+        </aside>
     </main>
   );
 };

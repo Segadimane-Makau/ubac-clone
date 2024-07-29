@@ -48,8 +48,8 @@ export default function Home() {
   return (
     <main className="block w-[100%] bg-[#F7F6F3]">
       <PageTransition/>
-      <Header />
-      <HeaderMobile />
+      {/* <Header /> */}
+      {/* <HeaderMobile /> */}
       <HeroBanner />
       <ProductTrack salesData={SalesData} />
       <CategoryBanner />

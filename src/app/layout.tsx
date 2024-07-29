@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/header";
 import PageTransition from "@/components/pageTransition";
 import { AnimatePresence } from "framer-motion";
+import { AppWrapper } from "@/context";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body className='bg-[#F7F6F3]'>
-          {/* <AnimatePresence mode="wait"> */}
+          <AppWrapper>
+          <Toaster />
+          <Header />
             {children}
-          {/* </AnimatePresence> */}
+          </AppWrapper>
         </body>
     </html>
   );
