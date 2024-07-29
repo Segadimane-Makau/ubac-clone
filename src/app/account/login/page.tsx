@@ -36,10 +36,11 @@ export default function Login() {
   const [credentialError, setCredentialError] = useState('');
   const [errorFlag, setErrorFlag] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   const router = useRouter();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -47,6 +48,7 @@ export default function Login() {
         router.push('/account');
       } else {
         setLoading(false);
+        setStartAnimation(true);
       }
     });
 
@@ -87,7 +89,7 @@ export default function Login() {
 
   return (
     <main className="block w-full bg-[#F7F6F3] min-h-screen">
-      <PageTransition/>
+      <PageTransition startAnimation={startAnimation}/>
       <Header />
       <HeaderMobile />
       <Toaster />

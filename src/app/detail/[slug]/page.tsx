@@ -13,15 +13,6 @@ async function fetchProductFromFirestore(collectionName: string, productId: stri
   return { id: docSnap.id, ...docSnap.data() };
 }
 
-async function fetchSalesFromFirestore(collectionName: string, productId: string) {
-  const docRef = doc(db, collectionName, productId);
-  const docSnap = await getDoc(docRef);
-  const data: any = [];
-  data.push({ id: docSnap.id, ...docSnap.data() })
-
-  return data;
-}
-
 const Details = async ({params}:any) => {
   let str = params.slug;
   let parts = str.split("-");

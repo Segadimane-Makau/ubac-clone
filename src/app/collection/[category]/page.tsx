@@ -4,9 +4,6 @@ import ProductList from "@/components/productList";
 import Footer from "@/components/footer";
 import { db } from '../../firebaseConfig';
 import { collection, getDocs} from 'firebase/firestore';
-import Image from "next/image";
-import bgMen from '@/assets/menBgOne.jpg'
-import bgWomen from '@/assets/womenBgOne.jpg'
 import Header from "@/components/header";
 
 async function fetchSalesFromFirestore(collectionName: string) {
@@ -48,6 +45,7 @@ export default function Products ({params}:any) {
     useEffect(() => {
     },);
     return (
+      
         <div className="block w-[100%] bg-[#F7F6F3]">
             <Header color={"black"}/>
             <ProductList salesData={data}/>

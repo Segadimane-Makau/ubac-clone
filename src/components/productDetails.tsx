@@ -14,6 +14,7 @@ import Carousel from './carousel';
 import ProductInfo from './productInfo';
 import Accordion from './accordion';
 import ProductFooter from './productFooter';
+import PageTransition from './pageTransition';
 
 async function UdpateColor(saleData: any, color: any) {
     for(let i = 0; i < saleData.saleImages.length; i++) {
@@ -36,7 +37,8 @@ const ProductDetails = ({saleData, color}:any) => {
     const [isOpen, setIsOpen] = useState(false);
     const [type, setType] = useState('');
     const [ShowModel, setShowModel] = useState(false);
-    // const { onAdd } = useAppContext();
+    const [startAnimation, setStartAnimation] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [AverageRating, setAverageRating] = useState(0);
     const [NumberOfStars, setNumberOfStars] = useState(5);
 
@@ -48,6 +50,8 @@ const ProductDetails = ({saleData, color}:any) => {
             for(let i = 0; i < saleData.saleImages.length; i++) {
                 availableColorsArray.push(saleData.saleImages[i].color);
             }
+
+            setStartAnimation(true);
 
             setCurrentImages(current.imagesUrls);
             setCurrentProductId(current.id);
@@ -138,9 +142,14 @@ const ProductDetails = ({saleData, color}:any) => {
       </div>
     )
     };
+
+    // if (loading) {
+    //   return <PageTransition startAnimation={startAnimation}/>;
+    // }
     
   return (
     <React.Fragment>
+        <PageTransition startAnimation={startAnimation}/>
         <div className='w-full col-span-2 mr-[150px] px-1'>
             <div className='hidden w-full md:grid md:grid-cols-2 md:gap-2 cursor-zoom-in' ref={imagesDivRef}>
                 {CurrentImages && (

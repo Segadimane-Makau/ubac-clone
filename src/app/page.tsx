@@ -34,6 +34,7 @@ async function fetchNewsFromFirestore(collectionName: any) {
 export default function Home() {
   const [SalesData, setSalesData] = useState([]);
   const [NewsData, setNewsData] = useState([]);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -41,13 +42,14 @@ export default function Home() {
       setSalesData(data);
       const newsData = await fetchNewsFromFirestore('News');
       setNewsData(newsData);
+      setStartAnimation(true);
     }
     fetchData();
   }, []);
 
   return (
     <main className="block w-[100%] bg-[#F7F6F3]">
-      <PageTransition/>
+      <PageTransition startAnimation={startAnimation}/>
       {/* <Header /> */}
       {/* <HeaderMobile /> */}
       <HeroBanner />

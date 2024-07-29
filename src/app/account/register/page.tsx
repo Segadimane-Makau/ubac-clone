@@ -39,6 +39,8 @@ export default function Register() {
     const [errorFlag, setErrorFlag] = useState(false);
     const [credentialError, setCredentialError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [startAnimation, setStartAnimation] = useState(false);
+
     const router = useRouter();
 
     const handleSubmit = async (event: any) => {
@@ -59,7 +61,6 @@ export default function Register() {
                 toast.success(`Signed up successfully!`);
                 router.push('/account/login');
 
-                console.log('Signing up successful.');
             } else {
                 setErrorFlag(true);
                 setCredentialError('Please fill in all required information');
@@ -81,7 +82,7 @@ export default function Register() {
 
     return (
         <main className="block w-full bg-[#F7F6F3] min-h-screen">
-          <PageTransition/>
+          <PageTransition startAnimation={startAnimation}/>
             <Header />
             <HeaderMobile />
             <Toaster/>

@@ -9,9 +9,11 @@ import Image from 'next/image'
 import image from '@/assets/newsThree.avif'
 import { toast } from 'react-hot-toast'
 import { v4 as uuidv4 } from 'uuid';
+import PageTransition from '@/components/pageTransition';
 
 export default function Checkout() {
     const { cartItems, toggleCartItemQuantity, onRemove, setIsCartOpen, totalPrice, setSuccessUid } = useAppContext();
+    const [startAnimation, setStartAnimation] = useState(false);
     const [payButtonFlag, setPayButtonFlag] = useState(false);
     const [email, setEmail] = useState<any>('');
     const [tempEmail, setTempEmail] = useState<any>('');
@@ -39,6 +41,7 @@ export default function Checkout() {
             router.push('/account/login');
           }else {
             setLoading(false);
+            setStartAnimation(true);
           }
         });
     
@@ -123,16 +126,12 @@ export default function Checkout() {
             }
 
             if (loading) {
-                return <main className="w-[100%] absolute text-center item-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4">
-                        <div className="w-full h-full">
-                            <div className="flex justify-center items-center">
-                                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-black"></div>
-                            </div>
-                        </div>
-                    </main>;
+                return <PageTransition startAnimation={startAnimation}/>
               }
 
   return (
+    <>
+    return <PageTransition startAnimation={startAnimation} />;
     <div className='w-full mt-[107px] p-8 text-[#212322]'>
         <div className='w-full grid md:grid-cols-2 grid-cols-1 min-h-[80vh] md:gap-8'>
             <div className=' w-full sm:p-8'>
@@ -257,5 +256,6 @@ export default function Checkout() {
             </div>
         </div>
     </div>
+    </>
   )
 }
