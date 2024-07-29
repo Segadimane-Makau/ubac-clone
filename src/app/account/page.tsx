@@ -69,7 +69,7 @@ export default function AccountDetails() {
         async function updateData() {
           const user = auth.currentUser;
           if (user) {
-            const docRef = doc(db, "users", user.uid);
+            const docRef = doc(db, "Users", user.uid);
             const docSnap = await getDoc(docRef);
             const data = docSnap.data();
             if(data){
@@ -92,7 +92,7 @@ export default function AccountDetails() {
             async function updateData() {
               const user = auth.currentUser;
               if (user) {
-                const docRef = doc(db, "users", user.uid);
+                const docRef = doc(db, "Users", user.uid);
                 const docSnap = await getDoc(docRef);
                 const data = docSnap.data();
                 if(data){
@@ -116,7 +116,7 @@ export default function AccountDetails() {
 
             if (user) {
               if(address){
-                await setDoc(doc(db, 'users', user.uid), {
+                await setDoc(doc(db, 'Users', user.uid), {
                   name: TempName,
                   surname: TempSurname,
                   address: {
@@ -127,7 +127,7 @@ export default function AccountDetails() {
                   }
                 });
               } else {
-                await setDoc(doc(db, 'users', user.uid), {
+                await setDoc(doc(db, 'Users', user.uid), {
                   name: TempName,
                   surname: TempSurname,
                 });
@@ -160,7 +160,7 @@ export default function AccountDetails() {
 
             if (user) {
               // user.email = tempEmail;
-              await setDoc(doc(db, 'users', user.uid), {
+              await setDoc(doc(db, 'Users', user.uid), {
                 name: name,
                 surname: surname,
                 address: {

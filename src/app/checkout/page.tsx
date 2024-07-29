@@ -49,7 +49,7 @@ export default function Checkout() {
         async function updateData(){
             const user = auth.currentUser;
             if (user) {
-              const docRef = doc(db, "users", user.uid);
+              const docRef = doc(db, "Users", user.uid);
               const docSnap = await getDoc(docRef);
               const data = docSnap.data();
               if(data){
@@ -85,7 +85,7 @@ export default function Checkout() {
     
                 if (user) {
                   // user.email = tempEmail;
-                  await setDoc(doc(db, 'users', user.uid), {
+                  await setDoc(doc(db, 'Users', user.uid), {
                     name: name,
                     surname: surname,
                     address: {
