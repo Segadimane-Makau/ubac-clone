@@ -1,11 +1,8 @@
-'use client'
-
 import React from 'react'
 import ProductDetails from '@/components/productDetails'
 import Footer from '@/components/footer'
-import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
-import ProductTrack from '@/components/productTrack'
 import Header from '@/components/header'
 import ProductFooter from '@/components/productFooter'
 
@@ -25,18 +22,6 @@ async function fetchSalesFromFirestore(collectionName: string, productId: string
   return data;
 }
 
-// async function FetchReviews(product_id: string) {
-//     const q = query(collection(db, "reviews"), where("productId", "==", product_id));
-//     const querySnapshot = await getDocs(q);
-
-//     const data: any = [];
-//     querySnapshot.forEach((doc) => {
-//       data.push({id:doc.id, ...doc.data()});
-//     });
-
-//     return data;
-// }
-
 const Details = async ({params}:any) => {
   let str = params.slug;
   let parts = str.split("-");
@@ -44,11 +29,7 @@ const Details = async ({params}:any) => {
   let productColor = parts[1];
 
   const currentSaleData = await fetchProductFromFirestore('Sales', productId);
-  const data: any = [];
-//   const SalesData = await fetchSalesFromFirestore('Sales', productId);
-  // data.push(currentSaleData);
-//   const reviews = await FetchReviews(productId);
-//   console.log(SalesData);
+
   return (
     <div className='block w-[100%] bg-[#F7F6F3] text-[#212322]'>
         <Header color={"black"}/>
@@ -58,10 +39,6 @@ const Details = async ({params}:any) => {
         <div className='w-full'>
           <ProductFooter items={currentSaleData}/>
         </div>
-        {/* <div className='w-full'>
-              <p className='text-4xl text-black font-semibold text-center'>You may also like</p>
-              <ProductTrack salesData={SalesData}/>
-        </div> */}
         <Footer/>
     </div>
   )

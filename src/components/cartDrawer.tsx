@@ -38,6 +38,7 @@ const CartDrawer = () => {
       <div className='h-full w-full bg-[#f2f2f2] text-[#212322]'>
         <div className='absolute top-0 w-full md:justify-center md:items-center md:text-center'>
           <h2 className='sm:text-5xl text-4xl font-bold md:mt-8 mt-4 ml-4'>CART</h2>
+          {/* <hr className='text-[#898989] md:mt-12'/> */}
         </div>
         
         <div className='absolute w-full top-28 md:bottom-[280px] bottom-[200px] overflow-y-auto'>
@@ -51,6 +52,7 @@ const CartDrawer = () => {
                               <Image src={imageGroup.imagesUrls[2]} alt='' width={100} height={100} className='sm:w-36 sm:h-36'style={{objectFit:"cover"}} unoptimized />
                               <div className='w-full pl-2'>
                                   <p className='font-bold sm:text-2xl text-1xl'>{sale.name}</p>
+                                  <p className='text-sm'>{sale.color}</p>
                                   <p className='text-sm'>Size: {sale.selectedSize}</p>
                               </div>
                               <div className='hidden sm:block min-w-[100px]'>
@@ -80,7 +82,7 @@ const CartDrawer = () => {
                                 </div>
                               </div>
                               </div>
-                                <p className='text-center text-2xl font-bold'>R{sale.totalAmount}</p>
+                                <p className='text-center text-2xl font-bold'>{sale.totalAmount}€</p>
                               </div>
                               <div className='md:block hidden pr-0'>
                                 <button onClick={() => onRemove(imageGroup.id)} className="pl-6 pr-6 h-[128px] bg-[#f2f2f2] w-full text-black right-0 top-0 relative overflow-hidden bg-[#f2f2f2] text-black transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-black hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
@@ -106,16 +108,16 @@ const CartDrawer = () => {
                 <p className='text-black text-2xl font-bold'>TOTAL</p>
             </div>
             <div className='w-full'>
-            <p className='mr-0 text-gray-500 text-3xl font-bold relative'>R{totalPrice}</p>
+            <p className='mr-0 text-[#212322] text-3xl font-normal relative'>{totalPrice}.00€ TTC</p>
             </div>
           </div>
-          <button onClick={() => setIsCartOpen(false)} disabled={cartItems.length === 0} className={`group relative bottom-2 min-h-[66px] md:min-h-[76px] w-[96%] overflow-hidden border border-${(cartItems.length === 0) ? "[#898989]":"[#000000]"} bg-[#f2f2f2] ${(cartItems.length === 0) ? "text-[#898989]":"text-black"} transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-${(cartItems.length === 0) ? "":"[#000000]"} before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-${(cartItems.length === 0) ? "":"[#000000]"} after:duration-500 hover:text-${(cartItems.length === 0) ? "":"[#ffffff]"} hover:before:h-full hover:after:h-full`}>
-            <span className={`top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-${(cartItems.length === 0) ? "":"[#000000]"} before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-${(cartItems.length === 0) ? "":"[#000000]"} after:duration-500 hover:text-${(cartItems.length === 0) ? "":"[#ffffff]"} group-hover:before:h-full group-hover:after:h-full`}></span>
-            <span className={`absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center group-hover:text-${(cartItems.length === 0) ? "[#898989]":["#ffffff"]} text-[18px] font-semibold`}>Continue Shopping</span>
+          <button onClick={() => setIsCartOpen(false)} disabled={cartItems.length === 0} className={`group relative bottom-2 min-h-[66px] md:min-h-[76px] w-[96%] overflow-hidden border ${(cartItems.length === 0) ? "border-[#898989]":"border-[#000000]"} bg-[#f2f2f2] ${(cartItems.length === 0) ? "text-[#898989]":"text-black"} transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 ${(cartItems.length === 0) ? "":"before:bg-[#000000]"} before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 ${(cartItems.length === 0) ? "":"after:bg-[#000000]"} after:duration-500 ${(cartItems.length === 0) ? "":"hover:text-[#ffffff]"} hover:before:h-full hover:after:h-full`}>
+            <span className={`top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 ${(cartItems.length === 0) ? "":"before:bg-[#000000]"} before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 ${(cartItems.length === 0) ? "":"after:bg-[#000000]"} after:duration-500 ${(cartItems.length === 0) ? "":"hover:text-[#ffffff]"} group-hover:before:h-full group-hover:after:h-full`}></span>
+            <span className={`absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center ${(cartItems.length === 0) ? "group-hover:text-[#898989]":"group-hover:text-[#ffffff]"} text-[18px] font-semibold`}>Continue Shopping</span>
           </button>
-          <button onClick={handleClick} disabled={cartItems.length === 0}  className={`group relative bottom-0 min-h-[66px] md:min-h-[86px] w-[100%] overflow-hidden border border-${(cartItems.length === 0) ? "[#898989]":"[#000000]"} bg-${(cartItems.length === 0) ? "[#898989]":"[#000000]"} text-white transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-${(cartItems.length === 0) ? "[#898989]":"[#f2f2f2]"} before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-${(cartItems.length === 0) ? "[#898989]":"[#f2f2f2]"} after:duration-500 hover:text-${(cartItems.length === 0) ? "[#898989]":"[#000000]"} hover:before:h-full hover:after:h-full`}>
-            <span className={`top-[0] flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-${(cartItems.length === 0) ? "[#898989]":"[#f2f2f2]"} before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-${(cartItems.length === 0) ? "[#898989]":"[#f2f2f2]"} after:duration-500 hover:text-black group-hover:before:h-full group-hover:after:h-full`}></span>
-            <span className={`absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center group-hover:text-${(cartItems.length === 0) ? "[#898989]":"[#000000]"} text-[18px] font-semibold`}>Order</span>
+          <button onClick={handleClick} disabled={cartItems.length === 0}  className={`group relative bottom-0 min-h-[66px] md:min-h-[86px] w-[100%] overflow-hidden border ${(cartItems.length === 0) ? "border-[#898989]":"border-[#000000]"} ${(cartItems.length === 0) ? "bg-[#898989]":"bg-[#000000]"} text-white transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 ${(cartItems.length === 0) ? "before:bg-[#898989]":"before:bg-[#f2f2f2]"} before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 ${(cartItems.length === 0) ? "after:bg-[#898989]":"after:bg-[#f2f2f2]"} after:duration-500 ${(cartItems.length === 0) ? "hover:text-[#898989]":"hover:text-[#000000]"} hover:before:h-full hover:after:h-full`}>
+            <span className={`top-[0] flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 ${(cartItems.length === 0) ? "before:bg-[#898989]":"before:bg-[#f2f2f2]"} before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 ${(cartItems.length === 0) ? "after:bg-[#898989]":"after:bg-[#f2f2f2]"} after:duration-500 hover:text-black group-hover:before:h-full group-hover:after:h-full`}></span>
+            <span className={`absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center ${(cartItems.length === 0) ? "group-hover:text-[#ffffff]":"group-hover:text-[#000000]"} text-[18px] font-semibold`}>Order</span>
           </button>
         </div>
       </div>

@@ -1,23 +1,22 @@
-// Import the functions you need from the SDKs you need
+// firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import  { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, AuthErrorCodes, updateEmail } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkLXzytElcmvgpZ2K8QivNCGkOlMiFRx0",
-  authDomain: "ubac-18e0d.firebaseapp.com",
-  projectId: "ubac-18e0d",
-  storageBucket: "ubac-18e0d.appspot.com",
-  messagingSenderId: "408414484222",
-  appId: "1:408414484222:web:75d66d47b8ee14be5997af",
-  measurementId: "G-434SR8ES62"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const base64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAC2AIIDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD0IAIACAAAAoigAAgIAioAADoIAIqACAKIAqoAqAAgAIAAANiACAAIAogCqgCiACKgCAAADaAAgAIAKIIKqCiiACKgCAAADYIAioAgIKIoCooACiAgCKgAAOiKgCKiCAAAAqooACiIqAgAAAOiKAiKiCCoKKigKAgAoiKAyKgAAOqKAyKiCCoKAoAoIIooiKAyKgAAOqKAiKAyKIqKACgIIooiKAyKgAAOoqAiNICIoiooCCgoAAiNIDIqAAA6gAiKgCKAigAqKAACIqAgqAAA6AAIAIAAACgAAAgAIgAAA//Z";
+const base64 = process.env.NEXT_PUBLIC_BASE64;
 
-
-export {db, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, AuthErrorCodes, updateEmail, base64};
+export { db, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, AuthErrorCodes, updateEmail, base64 };

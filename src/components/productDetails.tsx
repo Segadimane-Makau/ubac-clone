@@ -25,6 +25,7 @@ async function UdpateColor(saleData: any, color: any) {
   }
 
 const ProductDetails = ({saleData, color}:any) => {
+  const { onAdd } = useAppContext();
     const [CurrentImages, setCurrentImages] = useState<any>(null);
     const [CurrentProductId, setCurrentProductId] = useState(null);
     const [CurrentBase64, setCurrentBase64] = useState<any>(null);
@@ -149,14 +150,14 @@ const ProductDetails = ({saleData, color}:any) => {
                                 {index === 0 && (
                                     <>
                                         <div className='col-span-2 min-w-[100px] overflow-hidden'>
-                                            <Image src={image} alt='' className='w-full max-h-[80vh] object-cover' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                                            <Image src={image} alt='ubac' className='w-full max-h-[80vh] object-cover' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
                                         </div>
                                     </>
                                 )}
                                 {index > 1 && (
                                     <>
                                         <div className='col-span-1 min-w-[100px] overflow-hidden'>
-                                            <Image src={image} alt='' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
                                         </div>
                                     </>
                                 )}
@@ -171,7 +172,7 @@ const ProductDetails = ({saleData, color}:any) => {
                     <Slider {...settings}>
                       {CurrentImages.slice(2).map((image:any, index: number) => (
                             <div key={image}>
-                            <Image src={image} alt='' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
+                            <Image src={image} alt='ubac' className='w-full' width={100} height={100} unoptimized priority placeholder='blur' blurDataURL={base64} loading="eager"/>
                           </div>
                       ))}
                     </Slider>
@@ -234,7 +235,7 @@ const ProductDetails = ({saleData, color}:any) => {
                 ))}
             </div>
             <div className='w-full justify-center items-center text-center pt-8'>
-                <button className="group relative rounded-full min-h-[70px] w-[400px] overflow-hidden border border-[#898989] bg-[#212322] text-white transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-[#F7F6F3] before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-[#F7F6F3] after:duration-500 hover:text-[#212322] hover:before:h-full hover:after:h-full">
+                <button onClick={() => onAdd(saleData, CurrentProductId, 1, SelectedColor, selectedSize)} className="group relative rounded-full min-h-[70px] w-[400px] overflow-hidden border border-[#898989] bg-[#212322] text-white transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 before:bg-[#F7F6F3] before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 after:bg-[#F7F6F3] after:duration-500 hover:text-[#212322] hover:before:h-full hover:after:h-full">
                 <span className="top-0 flex h-full w-full items-center justify-center before:absolute before:bottom-0 before:left-1/4 before:z-0 before:h-0 before:w-1/4 before:bg-[#F7F6F3] before:duration-500 after:absolute after:right-1/4 after:top-0 after:z-0 after:h-0 after:w-1/4 after:bg-[#F7F6F3] after:duration-500 hover:text-[#212322] group-hover:before:h-full group-hover:after:h-full"></span>
                 <span className="relative bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center group-hover:text-[#212322] text-[18px] font-semibold">Add to cart</span>
                 </button>

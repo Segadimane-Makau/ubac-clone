@@ -29,19 +29,19 @@ export function AppWrapper ({ children } : {
           if (localCart) {
             localCartItems = JSON.parse(localCart);
           }
-          const docRef = doc(db, 'carts', user.uid);
+          const docRef = doc(db, 'Carts', user.uid);
           getDoc(docRef).then((docSnap) => {
             if (docSnap.exists()) {
               const userCartItems = docSnap.data().cartItems;
-              if(localCartItems.length > 0) {
+              if(localCartItems && localCartItems.length > 0) {
                 if(userCartItems.length > 0){
-                  const docRef = doc(db, 'carts', user.uid);
+                  const docRef = doc(db, 'Carts', user.uid);
                   const cartItems = [...userCartItems, ...localCartItems];
                   setCartItems(cartItems); 
                   setDoc(docRef, {cartItems});              
                }
                 else {
-                  const docRef = doc(db, 'carts', user.uid);
+                  const docRef = doc(db, 'Carts', user.uid);
                   const cartItems = [...localCartItems];
                   setCartItems(localCartItems);
                   setDoc(docRef, {cartItems});
@@ -80,7 +80,7 @@ export function AppWrapper ({ children } : {
       if(flag > 1){
         const user = auth.currentUser;
         if (user) {
-          const docRef = doc(db, 'carts', user.uid);
+          const docRef = doc(db, 'Carts', user.uid);
           setDoc(docRef, { cartItems });
         } else {
           localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -157,7 +157,7 @@ export function AppWrapper ({ children } : {
           setCartItems(cartItems);
           setqty(cartItems.length);
           setUser(user);
-          const docRef = doc(db, 'carts', user.uid);
+          const docRef = doc(db, 'Carts', user.uid);
           setDoc(docRef, { cartItems });
         } else {
           const cartItems:any = [];
