@@ -204,7 +204,7 @@ const ProductDetails = ({saleData, color}:any) => {
                 {/* <p className='pl-[8px] font-semibold text-1xl'>{reviews.length} Reviews</p> */}
             </div>
             {/* <button onClick={() => setShowModel(true)} className='text-[14px] font-semibold text-black'>write a review</button> */}
-            <p className='mt-2 text-[20px] text-gray-800 font-bold'>{saleData.price}.00€</p>
+            <p className='mt-2 text-[20px] text-gray-800 font-bold'>R{saleData.price}.00</p>
             <hr className='border-gray-300 mt-8'/>
             <p className='text-[14px] font-semibold mt-8 text-[#212322]'>Color</p>
             <div className='mt-4 ml-0'>
@@ -249,7 +249,7 @@ const ProductDetails = ({saleData, color}:any) => {
                 <span className="relative bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full items-center justify-center group-hover:text-[#212322] text-[18px] font-semibold">Add to cart</span>
                 </button>
             </div>
-            <p className='text-center text-[14px] font-bold text-gray-800 mt-2'>Free shipping & Returns from 50€ of purchase.</p>
+            <p className='text-center text-[14px] font-bold text-gray-800 mt-2'>Free shipping & Returns from R500 of purchase.</p>
             <div className='w-full mt-12'>
                 <Carousel images={saleData.carouselImages} />
             </div>

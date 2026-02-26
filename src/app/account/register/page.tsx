@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth, createUserWithEmailAndPassword, db } from "@/app/firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import toast, {Toaster} from "react-hot-toast";
@@ -42,6 +42,11 @@ export default function Register() {
     const [startAnimation, setStartAnimation] = useState(false);
 
     const router = useRouter();
+
+    useEffect(() => {
+        setIsLoading(false);
+        setStartAnimation(true);
+    })
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();

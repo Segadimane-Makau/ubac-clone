@@ -108,7 +108,7 @@ const CartDrawer = () => {
                 <p className='text-black text-2xl font-bold'>TOTAL</p>
             </div>
             <div className='w-full'>
-            <p className='mr-0 text-[#212322] text-3xl font-normal relative'>{totalPrice}.00€ TTC</p>
+            <p className='mr-0 text-[#212322] text-3xl font-normal relative'>R{totalPrice}.00</p>
             </div>
           </div>
           <button onClick={() => setIsCartOpen(false)} disabled={cartItems.length === 0} className={`group relative bottom-2 min-h-[66px] md:min-h-[76px] w-[96%] overflow-hidden border ${(cartItems.length === 0) ? "border-[#898989]":"border-[#000000]"} bg-[#f2f2f2] ${(cartItems.length === 0) ? "text-[#898989]":"text-black"} transition-all before:absolute before:left-0 before:top-0 before:h-0 before:w-1/4 ${(cartItems.length === 0) ? "":"before:bg-[#000000]"} before:duration-500 after:absolute after:bottom-0 after:right-0 after:h-0 after:w-1/4 ${(cartItems.length === 0) ? "":"after:bg-[#000000]"} after:duration-500 ${(cartItems.length === 0) ? "":"hover:text-[#ffffff]"} hover:before:h-full hover:after:h-full`}>

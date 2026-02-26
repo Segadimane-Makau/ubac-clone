@@ -73,7 +73,7 @@ const ProductList = ({salesData}:any) => {
                                                 <p className='uppercase text-[16px] mt-[16px]'>{sale.name}</p>
                                             </div>
                                             <p className='text-gray-400 text-base text-[14px]'>{sale.material}</p>
-                                            <p className='font-bold text-[16px] mt-0'>{sale.price}€</p>
+                                            <p className='font-bold text-[16px] mt-0'>{sale.price}R</p>
                                         </div>
                                     </div>
                                 </Link>
