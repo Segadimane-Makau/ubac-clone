@@ -82,7 +82,7 @@ const CartDrawer = () => {
                                 </div>
                               </div>
                               </div>
-                                <p className='text-center text-2xl font-bold'>{sale.totalAmount}€</p>
+                                <p className='text-center text-2xl font-bold'>R{sale.totalAmount}</p>
                               </div>
                               <div className='md:block hidden pr-0'>
                                 <button onClick={() => onRemove(imageGroup.id)} className="pl-6 pr-6 h-[128px] bg-[#f2f2f2] w-full text-black right-0 top-0 relative overflow-hidden bg-[#f2f2f2] text-black transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-black hover:before:w-2/4 hover:before:bg-black hover:after:w-2/4 hover:after:bg-black">
